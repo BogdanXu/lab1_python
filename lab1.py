@@ -152,5 +152,15 @@ def problem_9():
                 char = chr(index+65)
         print("The most common letter is", char, "with", max, "apparitions")
     findCommonLetter()
-problem_9()
+
+# Write a function that counts how many words exists in a text. 
+# A text is considered to be form out of words that are separated by only ONE space. For example: "I have Python exam" has 4 words.
+
+def problem_10():
+    def countWords():
+        inputstring = "i have a lot of words in my text and i am too lazy to count so many words so i will trust the output result"
+        counter = len(inputstring.split())
+        print(counter)
+    countWords()
+problem_10()
         
