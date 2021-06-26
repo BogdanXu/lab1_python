@@ -19,7 +19,7 @@ def problem_1():
 
 # Write a script that calculates how many vowels are in a string.
 def problem_2():
-    inputString = "hellosexy"
+    inputString = "helloworld"
     vowels = "aeiou"
     numberOfVowels = 0
     for index in range(0, len(inputString)):
@@ -41,7 +41,7 @@ def problem_3():
 
 #Write a script that converts a string of characters written in UpperCamelCase into lowercase_with_underscores.
 def problem_4():
-    inputString = "BunaSuntArusoaieSiVaRogSaScrietiAsaDaTotVaDepunctez"
+    inputString = "CamelCamelCamel"
 
     inputString = inputString.replace(inputString[0], inputString[0].lower())
 
@@ -97,6 +97,60 @@ def problem_6():
             print(number, "is a palindrome")
     palindrome(1)
 
+# Write a function that extract a number from a text (for example if the text is "An apple is 123 USD", this function will
+# return 123, or if the text is "abc123abc" the function will extract 123). 
+# The function will extract only the first number that is found.
 
 
+def problem_7():
+    def findFirstNumber():
+        inputstring = "abc123abc123512asgasgasg125521 asdasd 1245"
+        foundnumber = 0
+        result = ""
+        for index in range(0, len(inputstring)):
+            if inputstring[index].isnumeric():
+                result = result + inputstring[index]
+                foundnumber = 1
+            if foundnumber == 1 and not inputstring[index].isnumeric():
+                print(result)
+                break
+    findFirstNumber()
 
+#Write a function that counts how many bits with value 1 a number has. For example for number 24, the binary format is 00011000, meaning 2 bits with value "1"
+
+def problem_8():
+    def countBits():
+        inputnumber = 4095
+        counter = 0
+        binary = bin(inputnumber)
+        binary = str(binary)
+        binary = binary[2:]
+        print("The binary conversion of", inputnumber, "is", binary)
+        for index in range(0, len(binary)):
+            if binary[index]=='1':
+                counter+=1
+        print(counter)
+    countBits()
+
+# Write a functions that determine the most common letter in a string. For example if the string is "an apple is not a tomato", then the most common character is "a" (4 times).
+# Only letters (A-Z or a-z) are to be considered. Casing should not be considered "A" and "a" represent the same character.
+
+def problem_9():
+    def findCommonLetter():
+        inputstring = "a tomAYto is a tomAto not a potatooooooooooooo"
+        inputstring = inputstring.lower()
+        frequency = 26*[0]          #inmultiri de vectori lmao
+        max = 0
+        char = ""
+        for character in inputstring:
+            if character.islower():
+                i = ord(character)-ord('a')
+                frequency[i]+=1
+        for index in range(0, 26):
+            if frequency[index]>max:
+                max = frequency[index]
+                char = chr(index+65)
+        print("The most common letter is", char, "with", max, "apparitions")
+    findCommonLetter()
+problem_9()
+        
